@@ -48,8 +48,8 @@ A secure, privacy-first password manager built with Next.js and MongoDB Atlas. F
 5. **Open your browser**
    Navigate to [http://localhost:3000](http://localhost:3000)
 
-   ##You can also access the deployed version here:
-👉 [https://your-vercel-link.vercel.app](https://password-vault-4ynh.vercel.app/vault)
+   You can also access the deployed version here:
+👉 https://password-vault-4ynh.vercel.app/vault
 
 ## 🔧 Configuration
 
