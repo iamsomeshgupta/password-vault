@@ -48,6 +48,9 @@ A secure, privacy-first password manager built with Next.js and MongoDB Atlas. F
 5. **Open your browser**
    Navigate to [http://localhost:3000](http://localhost:3000)
 
+   ##You can also access the deployed version here:
+👉 [https://your-vercel-link.vercel.app](https://password-vault-4ynh.vercel.app/vault)
+
 ## 🔧 Configuration
 
 ### MongoDB Atlas Setup
@@ -93,19 +96,12 @@ npm run lint     # Run ESLint
 
 ## 🚀 Deployment
 
-### Deploy to Vercel (Recommended)
+### Deploy to Vercel
 
 1. Push your code to GitHub
 2. Connect your repository to Vercel
 3. Add environment variables in Vercel dashboard
 4. Deploy automatically
-
-### Deploy to other platforms
-
-```bash
-npm run build
-npm run start
-```
 
 ## 🏗️ Tech Stack
 
@@ -119,7 +115,3 @@ npm run start
 ## 📄 License
 
 This project is open source and available under the [MIT License](LICENSE).
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
