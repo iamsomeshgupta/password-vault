@@ -20,9 +20,9 @@ export async function POST(req: NextRequest) {
 
     const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET!, { expiresIn: "1h" });
     return NextResponse.json({ token, vaultSalt: user.vaultSalt });
-  } catch (err: any) {
+  } catch (err: unknown) {
     console.error("Login error:", err);
-    const message = typeof err?.message === "string" ? err.message : "Internal Server Error";
+    const message = err instanceof Error ? err.message : "Internal Server Error";
     const expose = process.env.NODE_ENV !== "production";
     return NextResponse.json({ error: expose ? message : "Internal Server Error" }, { status: 500 });
   }

@@ -26,9 +26,9 @@ export async function POST(req: NextRequest) {
     await User.create({ email, passwordHash, vaultSalt });
 
     return NextResponse.json({ ok: true });
-  } catch (err: any) {
+  } catch (err: unknown) {
     console.error("Signup error:", err);
-    const message = typeof err?.message === "string" ? err.message : "Internal Server Error";
+    const message = err instanceof Error ? err.message : "Internal Server Error";
     const expose = process.env.NODE_ENV !== "production";
     return NextResponse.json({ error: expose ? message : "Internal Server Error" }, { status: 500 });
   }

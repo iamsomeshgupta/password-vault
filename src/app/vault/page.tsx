@@ -94,8 +94,8 @@ export default function VaultPage() {
                   const data = await res.json().catch(()=>({ error: "Request failed" }));
                   setMsg(data.error || `Error ${res.status}`);
                 }
-              } catch (e: any) {
-                setMsg(e?.message || "Unexpected error");
+              } catch (e: unknown) {
+                setMsg(e instanceof Error ? e.message : "Unexpected error");
               }
             }}
           >Add</button>

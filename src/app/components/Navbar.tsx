@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 export default function Navbar() {
   const [authed, setAuthed] = useState(false);
@@ -17,7 +18,7 @@ export default function Navbar() {
   return (
     <nav className="w-full bg-gray-900 text-white border-b border-gray-800">
       <div className="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
-        <a href="/" className="font-semibold">Password Vault</a>
+        <Link href="/" className="font-semibold">Password Vault</Link>
         <div className="flex items-center gap-3">
           {authed ? (
             <>
