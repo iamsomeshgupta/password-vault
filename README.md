@@ -1,36 +1,125 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🔐 Password Vault
 
-## Getting Started
+A secure, privacy-first password manager built with Next.js and MongoDB Atlas. Features client-side encryption, strong password generation, and a clean vault interface.
 
-First, run the development server:
+## ✨ Features
+
+- **🔒 Client-side encryption** - Your passwords are encrypted before leaving your device
+- **🎲 Strong password generator** - Customizable length, character sets, and look-alike exclusion
+- **📱 Clean vault interface** - View, edit, delete, and search your saved passwords
+- **📋 Auto-clear clipboard** - Passwords are automatically cleared from clipboard after 12 seconds
+- **🔍 Smart search** - Filter across titles, usernames, URLs, and notes
+- **🌐 URL support** - Save and access website URLs directly from vault items
+- **📝 Notes** - Add additional notes to your password entries
+
+## 🚀 Quick Start
+
+### Prerequisites
+
+- Node.js 18+ 
+- MongoDB Atlas account
+- Git
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/password-vault.git
+   cd password-vault/web
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Set up environment variables**
+   Create a `.env.local` file in the `web` directory:
+   ```env
+   MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/password_vault?retryWrites=true&w=majority
+   JWT_SECRET=your-long-random-string-here
+   ```
+
+4. **Run the development server**
+   ```bash
+   npm run dev
+   ```
+
+5. **Open your browser**
+   Navigate to [http://localhost:3000](http://localhost:3000)
+
+## 🔧 Configuration
+
+### MongoDB Atlas Setup
+
+1. Create a MongoDB Atlas cluster
+2. Create a database user with read/write permissions
+3. Add your IP address to the network access list (or use `0.0.0.0/0` for development)
+4. Get your connection string and add it to `.env.local`
+
+### Environment Variables
+
+| Variable | Description | Example |
+|----------|-------------|---------|
+| `MONGODB_URI` | MongoDB Atlas connection string | `mongodb+srv://user:pass@cluster.mongodb.net/db` |
+| `JWT_SECRET` | Secret key for JWT tokens | `your-super-secret-key-here` |
+
+## 🛠️ Available Scripts
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run dev      # Start development server
+npm run build    # Build for production
+npm run start    # Start production server
+npm run lint     # Run ESLint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🔐 Security Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Client-side encryption** using Web Crypto API (AES-GCM)
+- **PBKDF2 key derivation** with 150,000 iterations
+- **Per-user encryption keys** derived from password + server salt
+- **JWT authentication** with 1-hour expiration
+- **No plaintext storage** - only encrypted ciphertext on server
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📱 Usage
 
-## Learn More
+1. **Sign up** with your email and password
+2. **Log in** to access your vault
+3. **Generate passwords** using the built-in generator
+4. **Save entries** with title, username, password, URL, and notes
+5. **Search and filter** your saved passwords
+6. **Copy passwords** to clipboard (auto-clears after 12 seconds)
+7. **Edit or delete** entries as needed
 
-To learn more about Next.js, take a look at the following resources:
+## 🚀 Deployment
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Deploy to Vercel (Recommended)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Push your code to GitHub
+2. Connect your repository to Vercel
+3. Add environment variables in Vercel dashboard
+4. Deploy automatically
 
-## Deploy on Vercel
+### Deploy to other platforms
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm run build
+npm run start
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🏗️ Tech Stack
+
+- **Frontend**: Next.js 15, React 19, TypeScript
+- **Styling**: Tailwind CSS v4
+- **Backend**: Next.js API Routes
+- **Database**: MongoDB Atlas
+- **Authentication**: JWT tokens
+- **Encryption**: Web Crypto API (AES-GCM, PBKDF2)
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
